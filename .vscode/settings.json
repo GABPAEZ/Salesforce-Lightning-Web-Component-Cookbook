@@ -4,5 +4,7 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "xml.preferences.showSchemaDocumentationType": "none"
+  "xml.preferences.showSchemaDocumentationType": "none",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnSave": true
 }
