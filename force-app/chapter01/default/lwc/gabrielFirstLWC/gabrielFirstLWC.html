@@ -12,16 +12,18 @@
 
       Hello world! My name is {userName}!
     </div>
-    <template lwc:if={currentDate}>
-      <br />
-      The date is currently:
-      <lightning-formatted-date-time
-        value={currentDate}
-        day="2-digit"
-        month="2-digit"
-        year="2-digit"
-        weekday="long"
-      ></lightning-formatted-date-time>
-    </template>
+    <div class="slds-var-p-around_medium">
+      <template lwc:if={currentDate}>
+        <br />
+        The date is currently:
+        <lightning-formatted-date-time
+          value={currentDate}
+          day="2-digit"
+          month="2-digit"
+          year="2-digit"
+          weekday="long"
+        ></lightning-formatted-date-time>
+      </template>
+    </div>
   </lightning-card>
 </template>
