@@ -1,0 +1,29 @@
+public without sharing class TransferAssetPersistence {
+  public static List<AggregateResult> getCountries() {
+    return [
+      SELECT Count(Id), BillingCountry
+      FROM Account
+      GROUP BY BillingCountry
+      ORDER BY BillingCountry NULLS FIRST
+    ];
+  }
+  public static List<AggregateResult> getCities(String selectedCountry) {
+    return [
+      SELECT Count(Id), BillingCity
+      FROM Account
+      WHERE BillingCountry = :selectedCountry
+      GROUP BY BillingCity
+      ORDER BY BillingCity NULLS FIRST
+    ];
+  }
+  public static List<Account> getAccountsByCity(String selectedCity) {
+    return [
+      SELECT Name, BillingCity, BillingState
+      FROM Account
+      WHERE BillingCity = :selectedCity
+    ];
+  }
+  public static void updateAsset(Asset ast) {
+    update ast;
+  }
+}

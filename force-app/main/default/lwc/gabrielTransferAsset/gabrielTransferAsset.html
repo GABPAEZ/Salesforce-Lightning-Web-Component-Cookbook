@@ -1,0 +1,51 @@
+<template>
+  <lightning-card icon-name="utility:animal_and_nature" variant="base">
+    <div slot="title">Transfer Asset</div>
+    <div slot="actions">
+      <lightning-button
+        label="Refresh"
+        onclick={handleClick}
+      ></lightning-button>
+    </div>
+    <div slot="footer">
+      <lightning-button
+        label="Tranfer"
+        onclick={handleTransfer}
+        disabled={transferDisabled}
+      ></lightning-button>
+    </div>
+    <div>
+      <!-- Card Body  -->
+      <lightning-combobox
+        class="slds-p-horizontal_medium"
+        name="transferCountry"
+        label="Country"
+        value={countryValue}
+        placeholder="Select Country..."
+        options={countryOptions}
+        onchange={handleCountryChange}
+      ></lightning-combobox>
+      <template lwc:if={cityOptions}>
+        <lightning-combobox
+          class="slds-p-horizontal_medium"
+          name="transferCity"
+          label="Cities"
+          value={cityValue}
+          placeholder="Select City..."
+          options={cityOptions}
+          onchange={handleCityChange}
+        ></lightning-combobox>
+      </template>
+      <template lwc:if={accountData}>
+        <lightning-datatable
+          class="slds-p-horizontal_medium"
+          key-field="accountId"
+          data={accountData}
+          columns={columns}
+          max-row-selection="1"
+          onrowselection={setAccountId}
+        ></lightning-datatable>
+      </template>
+    </div>
+  </lightning-card>
+</template>
